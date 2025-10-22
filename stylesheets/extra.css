@@ -55,7 +55,7 @@
   transition:left 250ms ease}
 
 .book-body.homepage {
-    background-image: url('https://xuebin-yang.github.io/bingo/docs/img/background.jpg') !important;
+    background-image: url('../img/background.jpg') !important;
     /*background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20190722/74a15d1526614d1db347fb68d10d3a42.jpeg') !important;*/
     position: fixed;
     top: 0;
