@@ -88,63 +88,126 @@ body {font-family: "SimSun", "Times New Roman", serif;font-size: 16px;line-heigh
 
 <div class="main-title"> A simple english grammar frame（Semi-finished version）</div>
 
-<p><font color=0000ff>Prologue: Seeing the progress of larning english as training AI model: pre-training audio or video clips on your brain iteration by iteration, and then generalize this model to some downstream tasks like singing or talking to improve the robust of the pre-trained model. And grammar frame can be compared to Pytorch or Tensorflow.</font></p>
+<p><font color=0000ff>Prologue: Seeing the progress of larning english as training AI model: pre-training audio or video clips on your brain iteration by iteration, and then generalize this model to some downstream tasks like singing or talking to improve the robust of the pre-trained model, and grammar frame is equal as Pytorch or Tensorflow.</font></p>
 <h1 id="imorphology">I、Morphology</h1>
+<p>了解词性的目的是为了将来了解哪些词性的词可以在句子中充当哪些成分，背单词时一定要注意记住词性。词性最重要的是四种：名词、动词、形容词、副词。其他的代词、冠词、介词等都属于辅助类的词性，最终都是要结合其他结构共同构成名词、形容词、副词的（一般构成不了动词，动词就是一词一意）。</p>
 <h2 id="1noun">（1）名词（noun）</h2>
-<p>名词的概念没必要解释。需要说明的是，动名词也属于名词。</p>
+<p>名词的概念没必要解释,字典里 noun. 的就是名词（what need to say is gerund is also noun.）</p>
 <p style="background-color: #bee2c6ff";><font color= #332111ff>
-<strong>Q：怎么区分现在分词和动名词?</strong><br> 
+<strong>Q1：怎么区分现在分词和动名词?</strong><br> 
 
-A：动名词(gerund)在句中可以做主语(subject)、宾语(object)、补语(complement)，它可以被名词或者代词替换，而且一般跟随在介词之后构成介宾结构或者一些动词(如 enjoy、avoid、suggest)之后。例如：<br>
+A：虽然动名词（gerund）和现在分词（present participle）都是“动词+ing”形式，形式一样，且都属于非谓语动词（不能做谓语，包括不定式、动名词/现在分词、过去分词），很难区分（比如swimming，又可以是动词swim的现在分词，也可以是看做是它的动名词）。但是有个本质的区别，动名词是做名词用的，所以具有名词的所有特征，可以做主语(subject)、宾语(object)，或者与介词构成介宾结构。例如：<br>
 1️⃣ Swimming is my favorite hobby. (Swimming is the subject, acting as a noun.)<br>
 2️⃣ I enjoy reading books. (Reading is the object of the verb "enjoy.")<br>
 3️⃣ She is good at dancing. (Dancing is the object of the preposition "at.")<br>
 
-现在分词(present participle)在句中可以作为形容词，用来修饰名词；还可以构成现在时态，表示一种ongoing的动作，它不可以被名词或者代词替换。例如：<br>
+现在分词(present participle)在句中可以作为形容词，用来修饰名词；还可以构成现在时态，表示一种ongoing的动作，它不可以被名词或者代词替换（即不可用 it 或者 something 来替换 doing）。例如：<br>
 1️⃣ The running water is cold. (Running describes the noun "water," acting as an adjective.)<br>
-2️⃣ She is singing beautifully. (Singing is part of the verb phrase "is singing," indicating ongoing action.)<br>
-3️⃣ The crying baby woke everyone up. (Crying describes the noun "baby.") 
-但是有一些单词比如come、cut、put、read、cost、hit等现在分词为其原型，动名词为ing形式的单词就要分开讨论了。）</font></p>
+2️⃣ She is singing beautifully. (Singing is part of the verb phrase "is singing" indicating ongoing action.)<br>
+3️⃣ The crying baby woke everyone up. (Crying describes the noun "baby.") <br>
 
-<h2 id="2pronoun">（2）代词（pronoun）</h2>
-<ul>
-<li>形容词性物主代词（限定词的一类，类似于形容词的用法）：your、her、his、its、their<br></li>
-<li>名词性物主代词：yours、mine、his、hers、its、ours、theirs<br></li>
-<li>人称代词：I、you、it、he、she<br></li>
-<li>反身代词：myself、yourself、himself<br></li>
-<li>指示代词：this、that、these、those<br></li>
-<li>疑问代词：who、what、which、where<br></li>
-<li>不定代词：some、any、none<br></li>
-<li>相互代词：each other（each other并不是两个代词的组合）、one another<br></li>
-<li>连接代词（引导名词性从句）：how、when、where<br></li>
-<li>关系代词（引导定语从句）：that、which、who、whom、whose、as<br></li>
-</ul>
-<h2 id="3article">（3）冠词（article）</h2>
+在动名词和现在分词相同的动词下（比如swim，动名词和现在分词一样，这个时候就需要以上方法特别判断。但是有一些单词比如cut、put、read、cost、hit等“现在分词为其原型，动名词为 -ing 形式”的单词就要分开讨论了。）</font></p>
+
+<p style="background-color: #bee2c6ff";><font color= #332111ff>
+<strong>Q2：怎么区分“不定式 to do”和“介词 to doing”?</strong><br> 
+本质上是判断to这个词是做不定式的前缀还是做介词的问题。如果要判断的话有几种方法：<br>
+<strong>判断方法一（替换法）</strong>：如果是介词的话，那么将to换成 in/on 其实意思不会有太大变化，如果是不定式的话，意思就完全变了。例如：<br>
+1️⃣ I’m used to getting up early. $\rightarrow$ I’m used in getting up early. 句子依然通顺合理，所以 to 就是介词。<br>
+2️⃣ I want to go. $\rightarrow$ I want in go. 句子不通畅了，所以 to 就是不定式。<br>
+<strong>判断方法二（经验法）</strong>：如果 to 是紧跟在动词之后使用的，可以看前面的动词，如果动词是不及物动词，那么就需要 ”介词+doing“ 的形式来连接宾语；如果是及物动词的话，那大概率是用 “to do”，因为动词后面的词通常用来表示目的，正好契合 to do 的内涵。如果介词前面是固定短语/形容词/名词（如look forward, be used, pay attention, object）时，这个时候大概率就要用“to doing”了。<br>
+<strong>判断方法三（看目的）</strong>：如果表示一种目的/将来/未发生的，就用不定式 to do。例如：<br>
+1️⃣ I stopped to buy a drink.<br>
+表方式/对象/已存在的动作，就用 to + doing。例如：<br>
+I’m used to living here.<br>
+<strong>使用方法</strong>：在说英语的时候如果能快速判断用 to do 还是 to doing 呢？<br>
+🤷🤷🤷🤷，目前我也不知道，可能只能靠语感，只能说遵循一个大原则，如果知道自己说的动词是不及物动词，那就要用 to doing，如果是及物动词，就用 to do，如果不是用在动词之后，就用 to doing。🤷🤷🤷🤷<br></font></p>
+
+<p style="background-color: #dabee2ff";><font color= #60a337ff>
+<strong>Tips：几组后面接 to do 和 doing 完全不同的单词及意思</strong><br> 
+1️⃣ stop： <br> 
+stop to do：停下来去做另一件事。例如：He stopped to smoke.（停下手里的事去抽烟）<br> 
+   stop doing: 停止做某事。例如：He stopped smoking.（戒烟了）<br> 
+2️⃣ remember： <br> 
+remember to do：记得要去做（未做）。例如：Remember to lock the door.<br>
+remember doing：记得做过（已做）。例如：I remember locking it.<br>
+3️⃣ forget：<br>
+forget to do：忘记要去做。I forgot to post the letter.<br>
+forget doing：忘记做过。I forgot posting it.<br>
+为什么会有一个单词后接 to do 和 doing，意思完全不同的情况呢？这和非谓语动词的时间属性有关，to do 和 doing 都是非谓语动词，但是 to do 具有指向未来、未发生的事的属性；而 doing 具有指向过去、已发生的事的属性，而forget、remember、stop三个单词都是“时间 / 记忆 / 动作状态” 相关的词，搭配上不同的非谓语动词就开始分裂了。<br>
+</font></p>
+
+<h2 id="2verb">（2）动词（verb）</h2>
+<h3 id="21-predicte-verb">2.1 谓语动词（predicte verb）</h3>
+<p>谓语动词没什么好解释的。按照可不可以直接接宾语可以分为：及物动词、不及物动词和不完全及物动词。及物动词和不及物动词没什么好解释的，不完全及物动词的常用的就是使役动词，它在接不定式作为宾语时需要省掉 to，因为他的意思里面已经有了使的意思了。</p>
+<h3 id="22-modal-verb">2.2 情态动词（Modal verb）</h3>
+<p>表示语气的单词，本身有一定的词义，它表示的是情感的程度、可能性的大小等。但是情态动词不能独立作谓语，只能和动词原形一起构成谓语（所以也有人将情态动词称为情态助动词）。情态动词用在行为动词前，表示说话人对这一动作或状态的看法或主观设想。行为动词表示的是可以通过行为来表达的动作(如写，读，跑)，而情态动词只是表达的一种想法(如能，也许，敢)。英文中常见的有:<strong> can (could)、 may (might)、 must、need、 ought to、are (dared)、 shall (should)、 will (would)</strong>。</p>
+<p style="background-color: #bee2c6ff";>Tips：<br>
+1️⃣ 情态动词的使用比较难掌握，而且在阅读过程中还会出现缩写的情况，还需要加以分别，如看到缩写时如 I'd 可能代表的是 I would、 I should、I had, 具体要视上下文判断, 但是不会是 I could， 因为 could 不会简写。<br>
+2️⃣ could、might、should、would 不只是简单的分别是 can、may、shall、will 的过去式那么简单，<font color=0000cc>他们各自也有各自的意思，我会在另一篇文章中再详细解释。</font></p>
+
+<h3 id="23">2.3 助动词</h3>
+<p>助动词用来构成时态和语态，也可构成疑问句和否定句，构成否定句时与否定副词not连用。具有语法意义，不可单独作谓语。它没有对应的汉译，必须和实义动词一起组成谓语动词。
+最常用的助动词有:be、have/has、do/does/did、got等。</p>
+<h2 id="3adjective">（3）形容词（adjective）</h2>
+<p>形容词就是用来限定名词的，也就是给名词添加属性的，如： beautiful wxy就给 wxy 增加了 beautiful 这个属性。</p>
+<p style="background-color:#bee2c6ff";><font color= #332111ff>
+<strong>Tips：形容词和定语的关系</strong><br> 
+形容词是典型的定语，但是定语并不完全是形容词，例如有时候想表达一些属性，但英语单词里却没有可以直接可以表达意思的形容词，就需要定语从句了，这个定语从句也是定语，但是它不是正常意义上的形容词（adj.）<br></font></p>
+
+<h2 id="4adverb">（4）副词（adverb）</h2>
+<p>副词就是用来限定谓语动词的，也就是给谓语动词添加语气的。如：speak loudly，就给speak这个动作添加了loudly这个语气。</p>
+<p style="background-color:#bee2c6ff";><font color= #332111ff>
+<strong>Tips：副词和状语的关系</strong><br> 
+副词是典型的状语，但是副词并不完全是状语，例如有时候想表达一些属性，但英语单词里却没有可以直接可以表达语气的形容词，就需要状语从句了，这个状语从句也是状语，但是它不是正常意义上的副词（adv.）<br></font></p>
+
+<h2 id="5pronoun">（5）代词（pronoun）</h2>
+<p>代词就是指代人/物/所属的词<br>
+- 形容词性物主代词（限定词的一类，类似于形容词的用法）：your、her、his、its、their<br>
+- 名词性物主代词：yours、mine、his、hers、its、ours、theirs<br>
+- 人称代词：I、you、it、he、she<br>
+- 反身代词：myself、yourself、himself<br>
+- 指示代词：this、that、these、those<br>
+- 疑问代词：who、what、which、where<br>
+- 不定代词：some、any、none<br>
+- 相互代词：each other（each other并不是两个代词的组合）、one another<br>
+- 连接代词（引导名词性从句）：how、when、where<br>
+- 关系代词（引导定语从句）：that、which、who、whom、whose、as<br></p>
+<h2 id="6article">（6）冠词（article）</h2>
 <ul>
 <li>定冠词：the</li>
 <li>不定冠词：a、an</li>
 </ul>
-<h2 id="4numeral">（4）数量词（numeral）</h2>
+<p style="background-color: #dabee2ff";><font color= #60a337ff>
+<strong>Q：定冠词和不定冠词区别？</strong><br> 
+A：🤷🤷🤷🤷感觉凭语感，我也不知道🤷🤷🤷🤷<br></font></p>
+
+<h2 id="7numeral">（7）数量词（numeral）</h2>
 <p>one、two、three、four…</p>
-<h2 id="5prepositon"><font color= #ff0000>（5）介词（prepositon）</font></h2>
-<p>介词是英语中非常难以用常规去理解的词，经常需要结合上下文来理解。常见的介词有：in、on、up、upon、at、with、toward、around、as…。介词后面只能接名词结构。<br></p>
-<p style="background-color: #bee2c6ff";>Tips：这里的名词是指可以充当名词的成分，包括名词（如：for fairness, for the sake of fairness, for the fair sake）、代词（with her）、动名词。<br>ps: 由于fair做名词时没有公平的意思，只有做形容词才有公平的意思，所以 for fair 是错误的</p>
+<h2 id="8prepositon"><font color= #ff0000>（8）介词（prepositon）</font></h2>
+<p>介词是英语中非常非常非常难以用常规去理解的词，经常需要结合上下文来理解。常见的介词有：in、on、up、upon、at、to、with、toward、around、as、like、until…。介词后面只能接名词结构。<br></p>
+<p style="background-color: #bee2c6ff";>Tips：这里的名词是指可以充当名词的成分，包括名词（如：for fairness, for the sake of fairness, for the fair sake）、代词（with her）、动名词。<br>
+由于fair做名词时没有公平的意思，只有做形容词才有公平的意思，所以 for fair 是错误的</p>
 
-<h2 id="6conjunction">（6）连词（conjunction）</h2>
-<p>连词更多的是死记硬背意思和用法。常见的连词有：though、although、and、or、but、either、neither等</p>
-<h2 id="7verb">（7）动词（verb）</h2>
-<h3 id="71-predicte-verb">7.1 谓语动词（predicte verb）</h3>
-<p>谓语动词没什么好解释的，词典里带 vi 和 vt 属性的词都可以做谓语动词。</p>
-<h3 id="72-modal-verb">7.2 情态动词（Modal verb）</h3>
-<p>表示语气的单词，本身有一定的词义，它表示的是情感的程度、可能性的大小等。但是情态动词不能独立作谓语，只能和动词原形一起构成谓语（所以也有人将情态动词称为情态助动词）。情态动词用在行为动词前，表示说话人对这一动作或状态的看法或主观设想。 行为动词表示的是可以通过行为来表达的动作(如写，读，跑)，而情态动词只是表达的一种想法(如能，也许，敢)。英文中常见的有:<strong> can (could)、 may (might)、 must、need、 ought to、are (dared)、 shall (should)、 will (would)</strong>。</p>
-<p style="background-color: #bee2c6ff";>Tips：<br>
-1️⃣ 情态动词的使用比较难掌握，而且在阅读过程中还会出现缩写的情况，还需要加以分别，如看到缩写时如 I'd 可能代表的是 I would、 I should、I had, 具体要视上下文判断, 但是不会是 I could， 因为 could 不会简写。<br>
-2️⃣ could、might、should、would 不只是简单的分别是 can、may、shall、will 的过去式那么简单，他们各自也有各自的意思和词性，我会在另一篇文章中再详细解释。</p>
+<h2 id="9conjunction">（9）连词（conjunction）</h2>
+<p>连词更多的是死记硬背意思和用法。常见的连词有：though、although、and、or、but、either、neither、until等</p>
+<h1 id="iielements">II、Elements</h1>
+<p>了解了词性之后，就要讨论这些词性在句子中可以充当哪些成分了。在英语句子中，总体有7种句子成分，分别是：主语、谓语、宾语、表语、定语、状语、补足语、同位语、及独立成分。他们可以组成英语中的 7 种基本句型：</p>
+<p><strong>句型1️⃣</strong>： 主语（subject）+ 谓语（verb） <font color=00ffcc>这里的谓语指的是不及物动词intranstive verb</font> <br> 
+<strong>句型2️⃣</strong>： 主语（subject）+谓语（verb）+ 宾语（object）<font color=00ffcc>这里的谓语若指的是及物动词 transtive verb，那么可以直接接宾语，如果谓语指的是不及物动词，那么需要一个介词来连接方可后接宾语</font><br> 
+<strong>句型3️⃣</strong>： 主语（subject）+ 系动词（linking verb）+表语（predicative） <br> 
+<strong>句型4️⃣</strong>： 主语（subject）+ 谓语（verb）+ 间接宾语（indirect object）+ 直接宾语（direct object）<br> 
+<strong>句型5️⃣</strong>： 主语（subject）+ 谓语（verb）+ 宾语（object）+ 补语（complement）<br> 
+<strong>句型6️⃣</strong>： 主语（subject）+ 谓语（verb）+状语（adverb）<br> 
+<strong>句型7️⃣</strong>： 主语（subject）+ 谓语（verb）+ 宾语（object）+状语（adverb）<br> </p>
+<p>以上的 7 种句型如果单独出来组成一句话其实很简单（简单句），就算好多句话并列在一起也还是简单（并列句），只要根据组成句子的单词的词性分析出各个句子的成分就行，unfortunately，不会这么简单，经常见到的是带有各种从句（主语从句、宾语从句、状语从句、表语从句、同位语从句等）的复合句，但是复合句也是有规律可循的，实际上从句也只是充当这7个句型里的某个成分而已，后面的内容会专门讲。</p>
+<p><font color=0000ff>ok，接下来解决掉哪些词性可以当哪些成分的问题？这个问题才是我们建立语法框架的关键，因为英语中绝大部分的句子都是由“四大词性”和“七类辅助”（介词短语、三类从句&lt;名词性从句、定语从句、状语从句&gt;、三类非谓语动词&lt;动名词、分词、不定式&gt;）所组成的。而我们在应用这七类辅助结构时，事实上是将它们当作四大词性中的一类来使用的</font> ，如下表所示：</p>
+<div align="center">
+<img src="./morphology.png" alt="词性图" width="900">
+<br>
+Fig. 四大词性与句中结构关系图
+</div>
 
-<h3 id="73">7.3 助动词</h3>
-<p>助动词用来构成时态和语态，也可构成疑问句和否定句，构成否定句时与否定副词not连用。具有语法意义，不可单独作谓语。它没有对应的汉译，必须和实义动词一起组成谓语动词。
-最常用的助动词有:be、have/has、do/does/did、got等。</p>
-<h1 id="ii-tense">II、 时态（Tense）</h1>
+<h1 id="iii-tense">III、 时态（Tense）</h1>
 <p>按照时间分为现在、过去、将来和过去将来，按照状态可以分为一般式、进行式、完成式、完成进行式，总共可以组合出16种时态。</p>
 <div align="center">
 <img src="./tensor.png" alt="时态图" width="900">
@@ -167,7 +230,16 @@ Fig. 16种时态图
 ① She told me that she would go back to HeFei.<br>
 ② She told me that she wouldn't go back to HeFei.<br>
 ③ Did she tell me that she would go back to HeFei?<br></p>
-<p><strong>to be continued,if you want to see more, please move to my CSDN platform....</strong></p>
+<p style="background-color: #a5bf72ff";><font color= #742121ff>
+<strong>番外篇：虚拟语气</strong><br>
+虚拟语气并不是一种特定的结构，而是语气，就像中文说的“要是年轻十岁就好了”这种就是虚拟语气，用来表示“事与愿违”的语气。英语中为了表达出这样的语气，对语法做了一点微调。
+</font></p>
+
+<h1 id="vi-subordinate-clause">VI、 从句（subordinate clause）</h1>
+<p>理解从句是理解复合句的关键，也是英语的高级用法。从句主要分为三大类从句，包括主语从句、定语从句、状语从句。</p>
+<h1 id="vii-interrogative-sentence">VII、 疑问句（interrogative sentence）</h1>
+<p>ending：英语语法总括起来就是先了解词性，再了解句子成分，知道了哪些词可以充当哪些成分；然后是了解时态，时态是了解英语语气以及隐含意思的关键之关键，16种时态的使用要记住；然后就是破解复杂句需要熟悉从句的识别和使用；最后就是表达的问题，需要了解疑问句的形式；了解了以上这四个部分，英语语法就算是通了。后面就是看书、看视频等各种变态方法轮番训练了，水滴石穿非一日之功，学英语也是如此，语法只是第一关，而且语言有时候是无形的，按照语法这种生硬的规则说出来的英语也不会正宗，只有不断学习，等待量变产生质变的那天，就是真正懂了这门语言之日。</p>
+<p><strong>to be continued, i will update soon</strong></p>
 
 
 
