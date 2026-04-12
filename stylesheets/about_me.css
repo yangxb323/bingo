@@ -1,7 +1,7 @@
 /* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: "KaiTi", "楷体", "STKaiti", "SimKai", "Times New Roman", "serif";
   min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */
 }
 
@@ -314,7 +314,7 @@
 .skills-content {
     display: flex;
     flex-direction: column; /* 内容垂直排列 */
-    padding-left: 34px; /* 与welcome-text、news-content等缩进一致 */
+    /*padding-left: 34px; 与welcome-text、news-content等缩进一致 */
 }
 
 .skills-item {
@@ -343,8 +343,8 @@
     /* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  min-width: 500px; /* 最小宽度，防止在小屏幕上过分压缩 */
+  font-family: "KaiTi", "楷体", "STKaiti", "SimKai", "Times New Roman", "serif";
+  min-width: 490px; /* 最小宽度，防止在小屏幕上过分压缩 */
 }
 
 /* part1:头像和工作信息布局 */
@@ -372,7 +372,7 @@
 }
 
 .name {
-  font-size: 4rem; /* 姓名字体大小 */
+  font-size: 3.8rem; /* 姓名字体大小 */
   font-weight: bold;
   margin: 2.9px;
 }
@@ -433,7 +433,6 @@
 }
 
 /* part2:个人信息布局 */
-
 .introduction{
     margin: 0;
     line-height: 1.5; /* 文字行高，确保换行时视觉舒适 */

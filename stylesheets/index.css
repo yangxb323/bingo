@@ -25,80 +25,6 @@
             background: linear-gradient(to bottom, rgba(10, 10, 30, 0.6), rgba(20, 20, 40, 0.7));
             z-index: -2;
         }
-
-        /* 雨滴效果 - 美化版 */
-        .rain-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .raindrop {
-            position: absolute;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(200, 220, 255, 0.3));
-            border-radius: 50% 50% 60% 60%;
-            animation: rain linear infinite;
-        }
-
-        /* 不同大小的雨滴 */
-        .raindrop.small {
-            width: 1px;
-            height: 15px;
-        }
-        
-        .raindrop.medium {
-            width: 1.5px;
-            height: 25px;
-        }
-        
-        .raindrop.large {
-            width: 2px;
-            height: 35px;
-        }
-        
-        /* 雨滴涟漪效果 */
-        .ripple {
-            position: absolute;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: ripple 1.5s ease-out infinite;
-            opacity: 0;
-        }
-        
-        @keyframes rain {
-            0% {
-                transform: translateY(-100px) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(100vh) translateX(10px);
-                opacity: 0;
-            }
-        }
-        
-        @keyframes ripple {
-            0% {
-                width: 5px;
-                height: 5px;
-                opacity: 0.7;
-            }
-            100% {
-                width: 50px;
-                height: 50px;
-                opacity: 0;
-            }
-        }
         
         .title {
             font-family: 'Liu Jian Mao Cao', cursive; /* 使用刘建毛草体 */
@@ -151,8 +77,83 @@
             width: 40%;
             margin: 30px auto;
         }
+
+        /* 雨滴效果 - 美化版 */
+        .rain-container{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .raindrop {
+            position: absolute;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(200, 220, 255, 0.3));
+            border-radius: 50% 50% 60% 60%;
+            animation: rain linear infinite;
+        }
+
+        /* 不同大小的雨滴 */
+        .raindrop.small {
+            width: 1px;
+            height: 15px;
+        }
+        
+        .raindrop.medium {
+            width: 1.5px;
+            height: 25px;
+        }
+        
+        .raindrop.large {
+            width: 2px;
+            height: 35px;
+        }
+        
+        /* 雨滴涟漪效果 */
+        .ripple {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: ripple 1.5s ease-out infinite;
+            opacity: 0;
+        }
         
         /* 响应式设计 */
+        @keyframes rain {
+            0% {
+                transform: translateY(-100px) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) translateX(10px);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                width: 5px;
+                height: 5px;
+                opacity: 0.7;
+            }
+            100% {
+                width: 50px;
+                height: 50px;
+                opacity: 0;
+            }
+        }
+
+        
         
         @media (max-width: 768px) {      
             .container {
