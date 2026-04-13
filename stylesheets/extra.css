@@ -1,18 +1,25 @@
 /* 这里主要是重写 style.min.css */
 
 /* the css setting of book summary */
-.book-header .btn {
-    display: block;
-    height: 50px;
-    padding: 0 15px;
-    border-bottom: none;
-    color: #15e434;
-    text-transform: uppercase;
-    line-height: 50px;
-    -webkit-box-shadow: none!important;
-    box-shadow: none!important;
-    position: relative;
-    font-size: 14px
+/* 强制 book-header 在所有设备上可见并固定在顶部 */
+.book-header {
+    position: sticky !important;     /* 或 fixed，根据需要 */
+    top: 0 !important;
+    z-index: 30 !important;          /* 确保在最上层 */
+    width: 100% !important;
+    padding-top: env(safe-area-inset-top, 10px) !important;  /* 适配 iOS 刘海屏 */
+    display: block !important;
+    min-height: 50px !important;     /* 防止被压缩 */
+}
+
+/* 收缩按钮样式强化（GitBook 模板中通常是 .btn 或特定 class） */
+.book-header .btn,
+.book-header button,
+.book-header [role="button"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 31 !important;
 }
 
 .book-summary{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
