@@ -149,5 +149,12 @@
   font-family: 'Source Serif Pro', serif;
 }
 
-
-
+@media (max-width: 768px) {
+.page-inner{
+  position:relative;
+  max-width: 1500px;
+  margin:0 auto;
+  height: 90vh;
+  padding:20px 15px 40px 15px;
+}
+}
