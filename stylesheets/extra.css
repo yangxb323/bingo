@@ -158,6 +158,7 @@
     
     /* 如果有 hamburger 按钮，确保它固定在顶部可见区域 */
     .book-header {
+        position: sticky;
         top: 0;
         z-index: 20;
         padding-top: env(safe-area-inset-top, 0px);
