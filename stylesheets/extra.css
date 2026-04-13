@@ -1,5 +1,10 @@
 /* 这里主要是重写 style.min.css */
-
+.book {
+    display: flex;
+    height: 100dvh;           /* 关键：使用 dynamic viewport height */
+    overflow: hidden;
+    position: relative;
+}
 /* the css setting of book summary */
 .book-header .btn {
     display: block;
@@ -29,7 +34,10 @@
   -webkit-transition:left 250ms ease;
   -moz-transition:left 250ms ease;
   -o-transition:left 250ms ease;
-  transition:left 250ms ease}
+  transition:left 250ms ease;
+  /* 添加 safe area 支持 */
+  padding-top: env(safe-area-inset-top, 0px);
+}
 
 
 /* 搜索框 */
@@ -78,11 +86,17 @@
 
 /* If the background doesn't propagate to the content area, also target inner sections */
 .book-body{
-  position:absolute;
+  position: relative;       /* 改成 relative 更稳 */
+  flex: 1;
+  min-height: 100dvh;       /* 优先用 dvh */
+  margin-left: 0;           /* 移动端默认收起时不需要左移 */
   top:0;
   right:0;
   left:0;
   bottom:0;
+  /* 兼容旧浏览器 */
+  height: 100vh;
+  height: 100dvh;
   
   color:#000;
   -webkit-transition:left 250ms ease;
@@ -92,26 +106,21 @@
 
 .book-body.homepage {
     background-image: url('../img/background.jpg') !important;
-    /*background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20190722/74a15d1526614d1db347fb68d10d3a42.jpeg') !important;*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* 去掉 fixed 附件，或用 background-attachment: local; 避免问题 */
+    background-attachment: scroll;   /* 或 local */
     filter: brightness(1.3) contrast(0.9);
 }
 
 .page-wrapper{position:relative;outline:0;}
 .page-inner{
-  position:relative;
   max-width: 1500px;
-  margin:0 auto;
-  height: 90vh;
-  padding:20px 15px 40px 15px;
+  margin: 0 auto;
+  padding: 20px 15px 40px 15px;
+  min-height: calc(100dvh - 60px);   /* 减去 header 大致高度 */
+  box-sizing: border-box;
 }
 
 /* 左侧菜单栏字体设计 */
@@ -147,4 +156,25 @@
 
 .font-source-serif {
   font-family: 'Source Serif Pro', serif;
+}
+
+
+/* 移动端媒体查询（强烈建议添加） */
+@media (max-width: 768px) {
+    .book-summary {
+        left: -300px;                 /* 默认隐藏 */
+    }
+    
+    .book-body {
+        margin-left: 0 !important;
+    }
+    
+    /* 如果有 hamburger 按钮，确保它固定在顶部可见区域 */
+    .book-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: white;            /* 根据你的配色调整 */
+        padding-top: env(safe-area-inset-top, 0px);
+    }
 }
