@@ -78,17 +78,9 @@
 
 /* If the background doesn't propagate to the content area, also target inner sections */
 
-
-.book {
-  min-height: 100vh;                    /* 兜底 */
-  min-height: 100dvh;                   /* 现代浏览器优先用 dvh */
-}
-
 .book-body{
   position:reletive;
-  min-height: 100vh;                    /* 兜底 */
-  min-height: 100dvh;                   /* 现代浏览器优先用 dvh */
-  padding-bottom: env(safe-area-inset-bottom, 0px);   /* 自动留出底部空间 */
+  min-height: 100dvh;
   
   color:#000;
   -webkit-transition:left 250ms ease;
@@ -118,7 +110,7 @@
   position:relative;
   max-width: 1500px;
   margin:0 auto;
-  min-height: 100dvh;        /* 动态适应工具栏显示/隐藏 */
+  min-height: calc(100dvh - 70px);       /* 留出 header 大致高度 */
   padding:20px 15px 40px 15px;
 }
 
@@ -156,4 +148,6 @@
 .font-source-serif {
   font-family: 'Source Serif Pro', serif;
 }
+
+
 
