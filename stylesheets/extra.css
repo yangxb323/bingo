@@ -82,9 +82,7 @@
   top:0;
   right:0;
   left:0;
-  bottom: auto; /* 取消固定底部 */
-  max-height: 100vh;
-  overflow-y: auto; /* 如果内容超出屏幕，允许在此处滚动 */
+  bottom:0;
   
   color:#000;
   -webkit-transition:left 250ms ease;
@@ -149,14 +147,4 @@
 
 .font-source-serif {
   font-family: 'Source Serif Pro', serif;
-}
-
-@media (max-width: 768px) {
-.page-inner{
-  position:relative;
-  max-width: 1500px;
-  margin:0 auto;
-  height: 90vh;
-  padding:20px 15px 40px 15px;
-}
 }
