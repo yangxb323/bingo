@@ -77,10 +77,8 @@
 
 
 /* If the background doesn't propagate to the content area, also target inner sections */
-
 .book-body{
   position:reletive;
-  min-height: 100dvh;
   
   color:#000;
   -webkit-transition:left 250ms ease;
@@ -110,7 +108,7 @@
   position:relative;
   max-width: 1500px;
   margin:0 auto;
-  min-height: calc(100dvh - 70px);       /* 留出 header 大致高度 */
+  height: 87vh;
   padding:20px 15px 40px 15px;
 }
 
