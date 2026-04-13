@@ -1,25 +1,18 @@
 /* 这里主要是重写 style.min.css */
 
 /* the css setting of book summary */
-/* 强制 book-header 在所有设备上可见并固定在顶部 */
-.book-header {
-    position: sticky !important;     /* 或 fixed，根据需要 */
-    top: 0 !important;
-    z-index: 30 !important;          /* 确保在最上层 */
-    width: 100% !important;
-    padding-top: env(safe-area-inset-top, 10px) !important;  /* 适配 iOS 刘海屏 */
-    display: block !important;
-    min-height: 50px !important;     /* 防止被压缩 */
-}
-
-/* 收缩按钮样式强化（GitBook 模板中通常是 .btn 或特定 class） */
-.book-header .btn,
-.book-header button,
-.book-header [role="button"] {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    z-index: 31 !important;
+.book-header .btn {
+    display: block;
+    height: 50px;
+    padding: 0 15px;
+    border-bottom: none;
+    color: #15e434;
+    text-transform: uppercase;
+    line-height: 50px;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    position: relative;
+    font-size: 14px
 }
 
 .book-summary{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -85,11 +78,7 @@
 
 /* If the background doesn't propagate to the content area, also target inner sections */
 .book-body{
-  position:absolute;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
+  position:reletive;
   
   color:#000;
   -webkit-transition:left 250ms ease;
@@ -100,9 +89,11 @@
 .book-body.homepage {
     background-image: url('../img/background.jpg') !important;
     /*background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20190722/74a15d1526614d1db347fb68d10d3a42.jpeg') !important;*/
-    position: absolute;
+    position: reletive;
     top: 0;
     left: 0;
+    right:0;
+    bottom:0;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -117,7 +108,7 @@
   position:relative;
   max-width: 1500px;
   margin:0 auto;
-  height: 90vh;
+  height: 60vh;
   padding:20px 15px 40px 15px;
 }
 
@@ -152,22 +143,9 @@
     transition: padding-left 0.3s ease; /* 平滑过渡 */
 }
 
-
-/* 移动端媒体查询（强烈建议添加） */
-@media (max-width: 768px) {
-    .book-summary {
-        left: -300px;                 /* 默认隐藏 */
-    }
-    
-    .book-body {
-        margin-left: 0 !important;
-    }
-    
-    /* 如果有 hamburger 按钮，确保它固定在顶部可见区域 */
-    .book-header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        padding-top: env(safe-area-inset-top, 0px);
-    }
+.font-source-serif {
+  font-family: 'Source Serif Pro', serif;
 }
+
+
+
