@@ -1,10 +1,5 @@
 /* 这里主要是重写 style.min.css */
-.book {
-    display: flex;
-    height: 100dvh;           /* 关键：使用 dynamic viewport height */
-    overflow: hidden;
-    position: relative;
-}
+
 /* the css setting of book summary */
 .book-header .btn {
     display: block;
@@ -34,10 +29,7 @@
   -webkit-transition:left 250ms ease;
   -moz-transition:left 250ms ease;
   -o-transition:left 250ms ease;
-  transition:left 250ms ease;
-  /* 添加 safe area 支持 */
-    padding-top: env(safe-area-inset-top, 0px);
-}
+  transition:left 250ms ease}
 
 
 /* 搜索框 */
@@ -153,9 +145,6 @@
     transition: padding-left 0.3s ease; /* 平滑过渡 */
 }
 
-.font-source-serif {
-  font-family: 'Source Serif Pro', serif;
-}
 
 /* 移动端媒体查询（强烈建议添加） */
 @media (max-width: 768px) {
@@ -169,7 +158,6 @@
     
     /* 如果有 hamburger 按钮，确保它固定在顶部可见区域 */
     .book-header {
-        position: sticky;
         top: 0;
         z-index: 20;
         padding-top: env(safe-area-inset-top, 0px);
