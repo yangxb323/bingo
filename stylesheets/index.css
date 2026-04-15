@@ -1,20 +1,8 @@
-        .container {
-            width: auto; /* 随视口宽度自适应 */
-            max-width: 700px; /* 最大宽度，防止过宽 */
-            min-width: 100px; /* 最小宽度，保证可读性 */
-            padding: 20px;
-            text-align: center; /* 内容居中 */
-            margin-left: 300px;
-            padding: 50px 40px;
-            position: relative;
-            background-size: cover;
-            color: #2c1f13;
+        .index_container {
+            margin: 0 auto;
             font-family: 'Liu Jian Mao Cao', cursive; /* 使用刘建毛草体 */
-            min-height: 100vh;
-            justify-content: center;
-            align-items: center;
         }
-
+        
         /* 背景遮罩 */
         .overlay {
             position: fixed;
@@ -34,7 +22,6 @@
             color: #fdfdfd;
             letter-spacing: 8px;
             font-weight: normal;
-            position: relative;
             z-index: 1;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -71,7 +58,7 @@
             font-weight: bold;
         }
         
-        .divider {
+        .index_divider {
             height: 2px;
             background: linear-gradient(to right, transparent, #fcfcfc, transparent);
             width: 40%;
@@ -168,7 +155,7 @@
             align-items: center;
             }
             .poem-content {
-            font-size: 3.0rem;
+            font-size: 2.5rem;
             line-height: 2.2;
             text-align: center;
             margin-bottom: 40px;

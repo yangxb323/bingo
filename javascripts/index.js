@@ -44,7 +44,7 @@ function createRipple() {
     
     const ripple = document.createElement('div');
     ripple.classList.add('ripple');
-    ripple.style.left = Math.random() * 100 + 'vw';
+    ripple.style.left = Math.random() * 80 + 'vw';
     ripple.style.top = '95vh'; // 底部位置
     ripple.style.animationName = 'ripple';
     ripple.style.animationDuration = '1.5s';

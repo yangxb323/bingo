@@ -60,16 +60,23 @@
 }
         
 .blog-image {
-    flex: 0 0 280px;
-    height: 180px;
+    flex: 0 0 280px;           /* 左边固定宽度（可根据需要调整） */
+    height: 180px;             /* 固定高度，保持卡片整齐 */
+    display: flex;             /* 关键：让图片在容器内居中 */
+    align-items: center;       /* 垂直居中 */
+    justify-content: center;   /* 水平居中 */
+    background: #f8f9fa;       /* 可选：加个浅背景，避免图片空白处太突兀 */
     overflow: hidden;
 }
 
 .blog-image img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
+    width: 100%;               /* 改成 100% 或 auto，看效果 */
+    height: 100%;
+    object-fit: contain;       /* 保持比例，完全显示图片 */
+    object-position: center;   /* 中心对齐 */
     transition: transform 0.5s ease;
+    max-width: 90%;            /* 额外保险，防止图片过大撑破 */
+    max-height: 90%;
 }
 
 .blog-item:hover .blog-image img {
@@ -319,15 +326,9 @@
 }
 
 .blog-item {
-    display: flex;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #eaeaea;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: row;           /* 保持左右布局 */
+        align-items: stretch;          /* 关键：让左右两边高度完全一致 */
+        gap: 5px;                        /* 可选：去掉默认间隙 */
     }
 
 .blog-item:hover {
@@ -336,17 +337,23 @@
 }
 
 .blog-image {
-            flex: 0 0 120px; /* 固定图片容器宽度 */
-            height: 110px;
-            overflow: hidden;
-            cursor: pointer;
+            flex: 0 0 120px;               /* 固定宽度 */
+        height: auto;                  /* 必须去掉固定高度，让它自动拉伸 */
+        min-height: 110px;             /* 保留最小高度，避免太矮 */
+        display: flex;
+        align-items: center;           /* 图片垂直居中 */
+        justify-content: center;       /* 图片水平居中 */
+        background: #f8f9fa;           /* 可选浅背景，更好看 */
+        overflow: hidden;
 }
 
 .blog-image img {
             width: 100%;
-            height: 100%;
-            object-fit:scale-down;
-            transition: transform 0.5s ease;
+        height: 100%;                  /* 关键：让图片填满整个 .blog-image 容器 */
+        object-fit: contain;           /* 推荐 contain（完整显示）或改成 cover（填满裁剪） */
+        max-width: 95%;
+        max-height: 95%;
+        transition: transform 0.5s ease;
         }
 
 .blog-item:hover .blog-image img {
@@ -354,11 +361,7 @@
         }
 
 .blog-content {
-    height: auto;
-    padding: 15px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    padding: 15px;                 /* 移动端适当减小内边距 */
 }
 
 .blog-header {
