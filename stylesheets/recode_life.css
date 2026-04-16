@@ -1,208 +1,156 @@
+/* ==================== 生活记录主容器 ==================== */
 .life-container {
-            min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */        
-            max-width: 1500px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-        }      
-        
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #faf9f6;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    min-height: 80vh;
+}
+
 .life-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e5e0d8;
+    position: relative;
 }
-        
+
+.life-header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, #8a9cc2, #d8a48f);
+}
+
 .life-title {
-            font-weight: 400;
-            font-size: 24px;
-            margin-bottom: 5px;
-            color: #222;
-        }                
-        
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #2c2c2c;
+    letter-spacing: 1px;
+}
+
 .life-subtitle {
-            font-weight: 300;
-            font-size: 14px;
-            color: #888;
-}        
-
-.life-nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-}
-        
-.life-nav-btn {
-            background: none;
-            border: none;
-            padding: 8px 16px;
-            margin: 0 5px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #666;
-            position: relative;
-            z-index: 1;
-
-}
-        
-.life-nav-btn.active {
-            color: #222;
-}
-        
-.life-nav-btn.active:after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #222;
+    font-weight: 300;
+    font-size: 15px;
+    color: #777;
+    letter-spacing: 0.5px;
 }
 
-.life-content {
-            min-height: 500px;
+/* ==================== 记录列表容器 ==================== */
+.life-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
-        
-.life-section {
-            display: none;
-}
-        
-.life-section.active {
-            display: block;
-}
-        
+
+/* ==================== 每条记录卡片（左图右文） ==================== */
 .life-entry {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transition: all 0.35s ease;
+    gap: 0;
 }
-        
-.life-entry:last-child {
-            border-bottom: none;
+
+.life-entry:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
-        
-.life-entry-header {
-            margin-bottom: 15px;
+
+/* 左侧图片区域 */
+.life-entry-image {
+    width: 280px;                    /* 固定图片宽度，可根据需要微调 */
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
 }
-        
-.life-entry-title {
-            font-size: 18px;
-            font-weight: 500;
-            color: #222;
-            text-decoration: none;
-            text-align: left; /* 确保标题左对齐 */
+
+.life-entry-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
-        
-.life-entry-title:hover {
-            color: #4a69bd;
+
+.life-entry:hover .life-entry-image img {
+    transform: scale(1.08);
 }
-        
+
+/* 右侧文字区域 */
 .life-entry-content {
-            color: #444;
-            margin-bottom: 15px;
-            font-weight: 300;
-            line-height: 1.7;
+    flex: 1;
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-        
-.life-entry-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+.life-entry-title {
+    font-size: 19.5px;
+    font-weight: 500;
+    color: #2c2c2c;
+    text-decoration: none;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    transition: color 0.3s ease;
 }
-        
+
+.life-entry-title:hover {
+    color: #6a7eb0;
+}
+
 .life-tags {
-            display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
 }
-        
+
 .life-tag {
-            color: #888;
-            font-size: 12px;
-            margin-right: 10px;
+    background: #f8f4eb;
+    color: #777;
+    font-size: 12.8px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
-        
+
 .life-entry-date {
-            color: #888;
-            font-size: 13px;
-}
-        
-.life-travel-entry {
-            border-left: 3px solid #6a89cc;
-            padding-left: 30px;
-            position: relative; /* 为伪元素提供定位上下文 */
-            
+    color: #999;
+    font-size: 13.8px;
+    margin-top: auto;               /* 把日期推到底部 */
 }
 
-.life-essay-entry {
-            border-left: 3px solid #f19066;
-            padding-left: 15px;
-}
-        
-.life-new-entry-form {
-            background: #fafafa;
-            padding: 30px;
-            border-radius: 6px;
-}
-        
-.life-form-group {
-            margin-bottom: 20px;
-}
-        
-.life-label {
-            display: block;
-            margin-bottom: 8px;
-            color: #444;
-            font-size: 14px;
-}
-        
-.life-input, .life-textarea, .life-select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #eee;
-            background: white;
-            font-size: 15px;
-            font-weight: 300;
-            border-radius: 4px;
-}
-        
-.life-input:focus, .life-textarea:focus, .life-select:focus {
-            outline: none;
-            border-color: #ddd;
-}
-        
-.life-textarea {
-            min-height: 150px;
-            resize: vertical;
-}
-        
-.life-btn {
-            background: #222;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 4px;
-}
-
-.life-btn:hover {
-            background: #4a69bd;
-}
-        
-.life-footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            color: #888;
-            font-size: 13px;
-            border-top: 1px solid #eee;
-}        
-
+/* ==================== 响应式优化（小屏幕时图片变窄或堆叠） ==================== */
 @media (max-width: 768px) {
-            /* define container */
     .life-container {
-            min-width: auto; /* 最小宽度，防止在小屏幕上过分压缩 */
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-        }   
+        padding: 30px 20px;
+        border-radius: 8px;
+    }
+    
+    .life-entry {
+        flex-direction: column;     /* 小屏幕时图片在上，文字在下 */
+    }
+    
+    .life-entry-image {
+        width: 100%;
+        height: 220px;              /* 小屏固定图片高度 */
+    }
+    
+    .life-entry-content {
+        padding: 24px 28px;
+    }
+    
+    .life-title {
+        font-size: 24px;
+    }
 }
