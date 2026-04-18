@@ -142,9 +142,8 @@
 
         
         
-        @media (max-width: 768px) {      
+        @media (max-width: 600px) {      
             .container {
-            max-width: 500px; /* 随视口宽度自适应 */
             text-align: center; /* 内容居中 */
             margin-left: 0px;
             position: relative;

@@ -154,12 +154,41 @@
 
 /* ====================== 移动端侧边栏优化（宽度 200px + 内容同比例缩小） ====================== */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+.book-summary{
+        width: calc(100% - 240px);   /* 小屏幕时侧边栏占几乎全屏 */
+        left: -100%;
+    }
+
+    .book.with-summary .book-body {
+        left: calc(100% - 240px);        /* ← 关键！和侧边栏宽度一致 */
+    }
+
+
+.book.with-summary .book-body {
+    transform: translate(calc(100% - 240px), 0);
+}
 
     .book-body.homepage {
-        background-size: cover !important;   /* 关键：完整显示整个图片 */
+        background-size: fill !important;   /* 关键：完整显示整个图片 */
         background-position: center center;
         background-repeat: no-repeat;
-        filter: brightness(1.2) contrast(0.9); /* 可根据需要微调亮度 */
-    }
+                filter: brightness(1.2) contrast(0.9);} /* 可根据需要微调亮度 */
+
+.headshot-img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
+.sidebar-headshot { padding: 20px 15px 6px !important; }
+    .sidebar-nickname { font-size: 16px !important; }
+
+    .book-summary ul.summary li a {
+        padding: 7px 20px !important;
+        font-size: 14px !important;
+    }
+        
+    }
