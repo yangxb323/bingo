@@ -156,17 +156,17 @@
 
 @media (max-width: 600px) {
 .book-summary{
-        width: calc(100% - 220px);   /* 小屏幕时侧边栏占几乎全屏 */
+        width: calc(100% - 210px);   /* 小屏幕时侧边栏占几乎全屏 */
         left: -100%;
     }
 
     .book.with-summary .book-body {
-        left: calc(100% - 220px);        /* ← 关键！和侧边栏宽度一致 */
+        left: calc(100% - 210px);        /* ← 关键！和侧边栏宽度一致 */
     }
 
 
 .book.with-summary .book-body {
-    transform: translate(calc(100% - 220px), 0);
+    transform: translate(calc(100% - 210px), 0);
 }
 
     .book-body.homepage {
