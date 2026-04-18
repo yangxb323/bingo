@@ -144,7 +144,7 @@
         
 @media screen and (max-width: 600px){ 
             .index_container {
-            min-width: 400px; /* 最小宽度，防止在小屏幕上过分压缩 */
+            min-width: 380px; /* 最小宽度，防止在小屏幕上过分压缩 */
             text-align: center; /* 内容居中 */
             margin-left: 0px;
             position: relative;
