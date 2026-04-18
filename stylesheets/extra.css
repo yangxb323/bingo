@@ -152,8 +152,7 @@
   font-family: 'Source Serif Pro', serif;
 }
 
-
-
+/* ====================== 移动端侧边栏优化（宽度 200px + 内容同比例缩小） ====================== */
 /* ====================== 移动端侧边栏优化（宽度 200px + 内容同比例缩小） ====================== */
 @media (max-width: 768px) {
     
@@ -180,7 +179,7 @@
     }
     .book.with-summary .book-body {
         left: 200px !important;
-        width: calc(100% - 200px) !important;   /* 精确减去侧边栏宽度 */
+        width: calc(100% - 280px) !important;   /* 精确减去侧边栏宽度 */
     }
 
     /* 3. 整体容器清理 */
@@ -217,12 +216,6 @@
     .book-summary ul.summary li.header {
         font-size: 15px !important;
         padding: 12px 18px 8px 18px !important;
-    }
-
-    /* 分隔线宽度跟随缩小 */
-    .book-summary ul.summary li.divider {
-        width: 180px !important;                /* 比侧边栏稍窄 */
-        margin: 6px 10px !important;
     }
 
     /* 搜索框缩小 */
