@@ -303,12 +303,12 @@
 }
         
         
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .my_post_container {
     margin: 0 auto;
     font-family: "KaiTi", "楷体", "STKaiti", "SimKai", "Times New Roman", "serif";
     min-width: auto; /* 最小宽度，防止在小屏幕上过分压缩 */
-    max-width: 1500px;
+    min-width: 400px;
     overflow: hidden;
     background-color: #ffffff;}
 
