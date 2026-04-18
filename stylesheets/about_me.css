@@ -1,16 +1,12 @@
 /* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;
-  font-family: 
-        "EB Garamond",                  /* 英文：接近 Times New Roman 的优雅罗马衬线 */
-        "LXGW WenKai",                  /* 中文：现代好看的楷体 */
-        "KaiTi", "楷体", "STKaiti", "SimKai", "Kaiti TC", 
-        Georgia, serif;                 /* 保底字体 */
-
-    /* 提升手机渲染清晰度 */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  font-family: "Times New Roman", "KaiTi", 
+        "STKaiti", 
+        "SimKai", 
+        "Kaiti TC", 
+        "DFKai-SB", 
+        "KaiTi_GB2312","serif";
   min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */
 }
 
