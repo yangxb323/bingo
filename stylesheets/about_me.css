@@ -1,7 +1,7 @@
 /* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;
-  font-family: "KaiTi", "楷体", "STKaiti", "SimKai", "Times New Roman", "serif";
+  font-family: "KaiTi", "楷体", "STKaiti", "DFKai-SB","SimKai", "Times New Roman", "serif";
   min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */
 }
 
@@ -383,7 +383,7 @@
     /* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;
-  font-family: "KaiTi", "楷体", "STKaiti", "SimKai", "Times New Roman", "serif";
+  font-family: "KaiTi", "楷体","DFKai-SB", "STKaiti", "SimKai", "Times New Roman", "serif";
   min-width: 490px; /* 最小宽度，防止在小屏幕上过分压缩 */
 }
 

@@ -149,7 +149,7 @@
 }
 
 .font-source-serif {
-  font-family: "KaiTi", "楷体_GB2312", "STKaiti", "SimKai", "Kaiti TC", 
+  font-family: "KaiTi", "楷体_GB2312", "STKaiti", "SimKai", "Kaiti TC", "DFKai-SB",           /* iOS 常见标楷体 */
                  "华文楷体", "KaiTi_GB2312", serif;   /* 增加更多常见楷体别名 */
 }
 
