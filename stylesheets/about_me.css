@@ -2,10 +2,7 @@
 .about-me-container {
   margin: 0 auto;
   font-family: 
-        "LXGW WenKai",          /* 中文楷体 - 最优先 */
-        "EB Garamond",          /* 英文罗马衬线 */
-        "KaiTi", "STKaiti", "Kaiti TC", "SimKai",
-        Georgia, "Times New Roman", serif;
+        "STKaiti", "Times New Roman", "serif";
   min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */
 }
 
