@@ -162,20 +162,20 @@
 /* Books Section */
 .books-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 24px;
 }
-        
+
 .book-item {
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     border: 1px solid #eee;
-    height: 100%;                    /* 关键：让卡片高度撑满网格行 */
+    height: 100%;                    /* 让卡片高度一致 */
 }
         
 .book-item:hover {
@@ -184,17 +184,23 @@
 }
         
 .book-cover {
-    aspect-ratio: 2 / 3;             /* 或者试试 5/7、3/4，根据你的图片调整 */
     width: 100%;
+    padding-top: 150%;               /* 经典书籍封面比例 ≈ 2:3 */
+    position: relative;
+    background: #f8f9fa;
     overflow: hidden;
-    background: #f5f5f5;             /* 防止图片加载前闪烁 */
 }
-        
 .book-cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;               /* 关键：裁剪保持比例，不变形 */
-    transition: transform 0.5s ease;
+    object-fit: contain;             /* 关键修改：完整显示，不剪裁 */
+    object-position: center;
+    padding: 8px;                    /* 给图片四周留一点白边，更像书 */
+    transition: transform 0.4s ease;
+    background: white;               /* 避免透明图片露底 */
 }
         
 .book-item:hover .book-cover img {
@@ -310,8 +316,7 @@
 @media (max-width: 600px) {
     .my_post_container {
     margin: 0 auto;
-    font-family: "KaiTi", "楷体_GB2312", "STKaiti", "SimKai", "Kaiti TC", "DFKai-SB",           /* iOS 常见标楷体 */
-                 "华文楷体", "KaiTi_GB2312", serif;   /* 增加更多常见楷体别名 */
+    font-family: "KaiTi", "楷体", "STKaiti", "SimKai", "Times New Roman", "serif";
     min-width: 380px;           /* 保留你想要的最小宽度 */
     max-width: 100%;            /* 重要：防止在极小屏幕上溢出 */
     overflow: hidden;
