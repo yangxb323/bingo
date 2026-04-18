@@ -1,6 +1,5 @@
         .index_container {
             margin: 0 auto;
-            font-family: 'Liu Jian Mao Cao', cursive; /* 使用刘建毛草体 */
         }
         
         /* 背景遮罩 */
@@ -161,7 +160,6 @@
             margin-bottom: 40px;
             position: relative;
             color: #ffffff;
-            font-family: 'Liu Jian Mao Cao', cursive; /* 使用刘建毛草体 */
         }
         }
 
