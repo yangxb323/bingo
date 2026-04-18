@@ -379,7 +379,7 @@
 
 
 /* 移动端响应式调整 */
-@media screen and (max-width: 768px){
+@media screen and (max-width: 600px){
     /* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;

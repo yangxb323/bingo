@@ -153,11 +153,14 @@
 }
 
 /* ====================== 移动端侧边栏优化（宽度 200px + 内容同比例缩小） ====================== */
+@media screen and (max-width: 600px){
+/* 侧边栏：固定250px，默认隐藏在左侧 */
 
-@media (max-width: 600px) {
 .book-summary{
         width: calc(100% - 210px);   /* 小屏幕时侧边栏占几乎全屏 */
         left: -100%;
+        z-index: 10 !important;
+        transition: left 220ms ease !important;   /* 稍微缩短动画时间，减少闪白感知 */
     }
 
     .book.with-summary .book-body {
@@ -167,13 +170,14 @@
 
 .book.with-summary .book-body {
     transform: translate(calc(100% - 210px), 0);
+    transform: none !important;         /* 关键：彻底禁用原来的 transform */
 }
 
     .book-body.homepage {
-        background-size: fill !important;   /* 关键：完整显示整个图片 */
+        background-size: cover !important;   /* 关键：完整显示整个图片 */
         background-position: center center;
         background-repeat: no-repeat;
-                filter: brightness(1.2) contrast(0.9);} /* 可根据需要微调亮度 */
+        filter: brightness(1.2) contrast(0.9);} /* 可根据需要微调亮度 */
 
 .headshot-img {
   width: 112px;
