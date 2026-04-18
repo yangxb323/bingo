@@ -37,8 +37,8 @@
 }
 
 .avatar-img {
-  width: 240px;
-  height: 240px;
+  width: 224px;
+  height: 224px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
@@ -154,17 +154,31 @@
 
 /* part2:个人信息布局 */
 
-.introduction{
-    margin: 0;
-    line-height: 1.5; /* 文字行高，确保换行时视觉舒适 */
-    padding-left: 0px; /* 文字左边距 */
+.introduction {
+  font-size: 1.1rem;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+  padding: 0 0.5rem;
+  text-align: justify;        /* 左右对齐 */
+  text-justify: inter-word;   /* 更好的英文单词间距 */
+  hyphens: auto;              /* 自动断词（提升英文阅读流畅度） */
 }
 
 .introduction p {
-    margin: 0; /* 移除默认间距 */
+  margin-bottom: 1.2rem;      /* 段落间距更舒适 */
+}
+/* part3:个人动态布局 */
+/* ====================== 模块标题 ====================== */
+.news-header,
+.publication-header,
+.project-header,
+.skills-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
 }
 
-/* part3:个人动态布局 */
 
 .news-section {
     width: 100%; /* 与下划线和欢迎区域宽度一致 */
@@ -182,8 +196,7 @@
 }
 
 .news-icon {
-    font-size: 24px; /* 图标大小 */
-    line-height: 1.5; /* 与文字行高一致 */
+  font-size: 1.65rem;
 }
 
 .news-title {
@@ -192,12 +205,20 @@
 }
 
 .news-content {
-    display: flex;
-    flex-direction: column; /* 动态内容垂直排列 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .news-content p {
-    margin: 5px 0; /* 每条动态之间的间距 */
+  margin: 0;
+  padding: 1rem 1rem 1rem 1.3rem;
+  font-size: 1.05rem;
+  background: #f9f9f9;                    /* 浅背景卡片 */
+  border-radius: 10px;
+  border-left: 5px solid #6b9e30;         /* 左侧绿色标识条 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 
@@ -418,8 +439,9 @@
 }
 
 .avatar-img {
-  width: 200px;
-  height: 200px;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 3rem; /* 保持头像与信息的间距为 3rem */
