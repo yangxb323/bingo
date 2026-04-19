@@ -1,4 +1,7 @@
-/* about-me 整个页面的布局 */
+/* 平滑页面过渡 - 跨页面淡入淡出 */
+@view-transition {
+  navigation: auto;
+}/* about-me 整个页面的布局 */
 .about-me-container {
   margin: 0 auto;
   padding: 1.5rem 1rem;
@@ -20,13 +23,13 @@
 }
 
 /* part1:头像和工作信息布局 */
+/* part1:头像和工作信息布局 */
 .profile-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 1.8rem;
-  margin-bottom: 2.5rem;
+  justify-content: center; /* 使头像和信息整体居中 */
+  margin-bottom: 3rem;
+  gap: 80px; /* 头像和文字区域之间的间距 */
 }
 
 .info {
@@ -41,28 +44,29 @@
   height: 224px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  margin-right: 1rem; /* 保持头像与信息的间距为 3rem */
 }
 
 .name {
-  font-size: clamp(2.4rem, 7vw, 3.8rem);
-  font-weight: 700;
-  margin: 0.4rem 0 0.6rem 0;
+  font-size: clamp(1.3rem, 4.5vw, 3.5rem);
+  font-weight: 600;
+  margin: 0 0 0.1rem 0;
   color: #1a1a1a;
 }
 
-.contact {
-  font-size: 1.25rem;
-  margin: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+
+.contact{
+  margin: 0rem ;
+  font-size: 1.5rem;
+  white-space: nowrap; /* 防止文本换行 */
+  width: 100%;
+  min-width: fit-content; /* 确保内容宽度足够 */
 }
 
-.contact i {
-  color: #6b9e30;
-  font-size: 1.35rem;
+.contact i{
+  margin: 0rem ;
+  font-size: 1.5rem;
+  color: rgb(119, 96, 119);
 }
 
 .occupation{
@@ -91,13 +95,13 @@
 }
 
 .social {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-right: 0.3rem; /* 添加小间距，确保知乎等靠近 | 符号 */
   color: rgb(29, 161, 242);
 }
 
 .social_bili {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-right: 0.3rem; /* 添加小间距，确保知乎等靠近 | 符号 */
   color: rgb(255, 192, 203);
 }
@@ -114,7 +118,7 @@
 }
 
 .social_bili {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-right: 0.3rem; /* 添加小间距，确保知乎等靠近 | 符号 */
   color: rgb(255, 192, 203);
 }
@@ -428,8 +432,7 @@
   align-items: center;
   justify-content: center; /* 使头像和信息整体居中 */
   margin-bottom: 3rem;
-  margin-right: 15%;
-  gap: 1px;
+  gap: 0.5px;
 }
 
 .info {
@@ -441,54 +444,46 @@
 .avatar-img {
   width: 128px;
   height: 128px;
-  margin: 0 auto;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 3rem; /* 保持头像与信息的间距为 3rem */
+  margin-right: 2rem; /* 保持头像与信息的间距为 3rem */
 }
 
 .name {
-  font-size: 3.8rem; /* 姓名字体大小 */
+  font-size: 2.8rem; /* 姓名字体大小 */
   font-weight: bold;
-  margin: 2.9px;
 }
 
 .contact{
-  margin: 0.5rem ;
   font-size: 1.5rem;
 }
 
 .contact i{
-  margin: 0rem ;
   font-size: 1.5rem;
   color: rgb(164, 4, 192);
 }
 
 .occupation{
-  margin: 0.5rem ;
   font-size: 1.5rem;
   width: 100%;
 }
 
 .occupation i{
-  margin: 0rem ;
   font-size: 1.5rem;
   color: rgb(164, 4, 192);
 }
 
 .social-links {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .social-row {
   display: flex;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0rem 0;
 }
 
 .social {
   font-size: 1.5rem;
-  margin-right: 0.3rem; /* 添加小间距，确保知乎等靠近 | 符号 */
+  margin-right: 0.25rem; /* 添加小间距，确保知乎等靠近 | 符号 */
   color: rgb(21, 123, 0);
 }
 

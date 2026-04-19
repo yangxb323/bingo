@@ -109,12 +109,12 @@
         
 /* 大标题 */
 .blog-title {
-    font-size: 1.40rem;
+    font-size: 1.50rem;
     color: #333;
     text-decoration: none;
     font-weight: 600;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 1px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -124,7 +124,7 @@
     color: #e63939;
     font-size: 0.96rem;
     line-height: 1.45;
-    margin: 0 0 16px 0;             /* 与标签保持合适间距 */
+    margin: 0 0 0.1px 0;             /* 与标签保持合适间距 */
 }
         
 .blog-title:hover {
@@ -157,12 +157,10 @@
     cursor: pointer;
 }
 
-
-
 /* Books Section */
 .books-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
     gap: 24px;
 }
 
@@ -414,14 +412,13 @@
 }
 .books-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
     gap: 8px;
 }
 
 .book-cover {
-    height: 112px;
+    height: 98px;
     overflow: hidden;
-    position: relative;
 }
 
 

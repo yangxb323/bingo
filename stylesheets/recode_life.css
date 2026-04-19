@@ -1,4 +1,8 @@
 /* ==================== 生活记录主容器 ==================== */
+/* 平滑页面过渡 - 跨页面淡入淡出 */
+@view-transition {
+  navigation: auto;
+}
 .life-container {
     max-width: 1100px;
     margin: 0 auto;
