@@ -1,0 +1,114 @@
+/* grammar-frame.css - 高端极简学术版（深灰海军蓝配色） */
+.grammar-frame {
+    font-family: "Noto Serif SC", "EB Garamond", Georgia, serif;
+    font-size: 1.06rem;
+    line-height: 1.82;
+    color: #1f1f1f;
+    background: #faf9f6;           /* 干净冷白米，高级不刺眼 */
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 50px 45px;
+    border: 1px solid #e5e3dd;
+    border-radius: 4px;            /* 极小圆角，正式干净 */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}.grammar-frame .main-title {
+    font-size: 2.95rem;
+    text-align: center;
+    margin: 20px 0 65px;
+    color: #0f0f0f;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}.grammar-frame .prologue {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #43b022;
+    margin: 0 auto 20px;
+    max-width: 660px;
+    line-height: 1.78;
+}.grammar-frame h2 {
+    font-size: 1.72rem;
+    margin: 3.2em 0 1.1em;
+    color: #0f0f0f;
+    border-bottom: 2px solid #1e3a8a;   /* 深海军蓝下划线，高级强调 */
+    padding-bottom: 14px;
+}.grammar-frame h3 {
+    font-size: 1.33rem;
+    margin: 2.6em 0 1em;
+    color: #1e3a8a;                     /* 海军蓝用于小标题 */
+}.grammar-frame p {
+    margin-bottom: 1.45em;
+}/* 极简高级提示框 */
+.grammar-frame .callout {
+    margin: 45px 0;
+    padding: 30px 36px;
+    background: #ffffff;
+    border-left: 4px solid #1e3a8a;
+    border-radius: 3px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}.grammar-frame .callout strong {
+    display: block;
+    font-size: 1.19rem;
+    margin-bottom: 16px;
+    color: #0f0f0f;
+}/* 结语卡片 - 极简内敛 */
+.grammar-frame .ending {
+    margin: 95px 0 60px;
+    padding: 45px 40px;
+    background: #f5f4f0;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 1.85;
+    color: #333333;
+    border: 1px solid #e5e3dd;
+}/* 移动端优化 */
+
+/* 文字高亮类 - 不会换行 */
+.grammar-frame .highlight-red   { color: #e74c3c; font-weight: 600; }
+.grammar-frame .highlight-blue  { color: #1e3a8a; font-weight: 600; }
+.grammar-frame .highlight-green { color: #2e8b57; font-weight: 600; }
+.grammar-frame .highlight-orange{ color: #f39c12; font-weight: 600; }
+.grammar-frame .highlight-black   { color: #000000; font-weight: 600; }
+
+/* 如果你还想要背景色高亮 */
+.grammar-frame .highlight-bg {
+    background-color: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+/* 让所有图片在 grammar-frame 内自动响应式 */
+.grammar-frame img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;   /* 自动居中 + 上下间距 */
+}
+
+/* Callout 内部文字高亮样式 */
+.grammar-frame .callout .highlight-red   { color: #e74c3c; font-weight: 600; }
+.grammar-frame .callout .highlight-blue  { color: #1e3a8a; font-weight: 600; }
+.grammar-frame .callout .highlight-green { color: #2e8b57; font-weight: 600; }
+.grammar-frame .callout .highlight-orange{ color: #f39c12; font-weight: 600; }
+.grammar-frame .callout .highlight-purple{ color: #9b59b6; font-weight: 600; }
+
+/* 如果需要带背景色的强调 */
+.grammar-frame .callout .highlight-bg {
+    background-color: #fff8e1;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+@media (max-width: 768px) {
+    .grammar-frame {
+        padding: 32px 25px;
+        margin: 15px auto;
+    }
+    .grammar-frame .main-title {
+        font-size: 2.45rem;
+        margin: 15px 0 50px;
+    }
+    .grammar-frame h2 {
+        font-size: 1.55rem;
+    }
+    .grammar-frame .callout {
+        padding: 24px 28px;
+    }
+}

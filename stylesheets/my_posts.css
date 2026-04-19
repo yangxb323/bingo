@@ -141,12 +141,15 @@
         
 .tags {
     margin-top: auto;                  /* 让标签始终靠底部 */
+    flex-wrap: nowrap;                /* 禁止换行（最核心） */
 }
         
 .tag {
     background-color: #eef2ff;
     color: #5a67d8;
     padding: 5px 12px;
+    white-space: nowrap;              /* 单个标签内文字也不换行 */
+    flex-shrink: 0;                   /* 非常重要！防止标签被压缩 */
     border-radius: 20px;
     font-size: 0.85rem;
     transition: background-color 0.2s ease;

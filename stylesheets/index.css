@@ -15,6 +15,7 @@
         
         .title {
             font-family: 'Liu Jian Mao Cao', cursive; /* 使用刘建毛草体 */
+            font-display: swap;
             font-size: 7rem;
             text-align: center;
             margin-bottom: 25px;
