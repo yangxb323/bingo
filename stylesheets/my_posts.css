@@ -271,6 +271,7 @@
 
 /* 平台图标样式（保持你原来的，但做了小优化） */
 .bilibili-icon,
+.mjtt-icon,
 .youtube-icon {
     position: absolute;
     bottom: 10px;
@@ -293,6 +294,12 @@
     width: 40px;
     height: 40px;
     background-image: url("../img/youtube_icon.png");
+}
+
+.mjtt-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/mjtt_logo.jpeg");
 }
 
 /* 视频标题 */
