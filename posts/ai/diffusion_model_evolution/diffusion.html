@@ -103,119 +103,144 @@
 
 
 <style>
-body {font-family: "SimSun", "Times New Roman", serif;line-height: 25px;background: rgba(255, 255, 255, 0.9);}
+body {
+    font-family: "SimSun", "Times New Roman", serif;
+    line-height: 25px;
+    background: rgba(255, 255, 255, 0.9);
+}
 </style>
 
-<div class="main-title"> 扩散模型的推导过程以及基础概率论知识</div>
+<div class="grammar-frame">
 
-<h1 id="_1">一、概率论基础</h1>
-<h2 id="1-px">1、概率 p(x)</h2>
-<p>事件A的概率是对事件A在试验中出现的可能性大小的一种度量，事件A的概率表示为 <span class="arithmatex">\(p(A)\)</span></p>
-<h2 id="2">2、概率分布</h2>
-<p>反映随机变量 <span class="arithmatex">\(X\)</span>（可能是离散型、也可能是连续型）的所有可能取值（如<span class="arithmatex">\(X=x_1,x_2,....\)</span>），将随机变量取这些值的概率一一列举出来的概率分布就是该随机变量的概率分布。对于离散型随机变量，它的概率分布可以用枚举法表示<span class="arithmatex">\(P(X=x_i)\)</span>；对于连续型随机变量，它的概率分布可以用<span class="arithmatex">\(P(X)\)</span>表示。</p>
-<center><font color=00ff00>---tip:以上两个概念都是概念性的东西，并没有公式---</font></center>
-<h2 id="3">3、概率密度函数</h2>
-<p>设 <span class="arithmatex">\(X\)</span> 为一<strong>连续型随机变量</strong>（对于连续性随机变量，它为某一具体数值的概率为 0，只能用范围<span class="arithmatex">\([x_1, x_2]\)</span>来表示它的概率），<span class="arithmatex">\(x\)</span>为任意实数，<span class="arithmatex">\(X\)</span>的概率密度函数记为<span class="arithmatex">\(f(x)\)</span>,概率密度函数满足条件：
-（1）<span class="arithmatex">\(f(x) \ge 0\)</span>；（2）<span class="arithmatex">\(\int_{+\infty}^{-\infty}f(x)dx=1\)</span>。</p>
-<p><font color=00ff00><strong>概率密度函数f(x)和概率p(x)的关系：对于任何实数<span class="arithmatex">\(x_1&lt;x_2\)</span></strong>, <span class="arithmatex">\(p(x_1&lt;x&lt;x_2)\)</span>是该概率密度曲线下从<span class="arithmatex">\(x_1\)</span>到<span class="arithmatex">\(x_2\)</span>的面积：<span class="arithmatex">\(p(x_1&lt;x&lt;x_2)=\int_{x_1}^{x_2}f(x)dx\)</span></font></p>
-<h2 id="4cumulative-distribution-function">4、分布函数（也叫累积分布函数，cumulative distribution function）</h2>
-<p>连续型随机变量的概率<strong>也可以</strong>用分布函数 <span class="arithmatex">\(F(x)\)</span> 来表示，分布函数的定义为：
+<div class="main-title">扩散模型的推导过程以及基础概率论知识</div>
+
+<div class="prologue">
+    概率论基础与扩散模型核心推导（VAE → Diffusion）<br>
+</div>
+
+<h2>一、概率论基础</h2>
+
+<h3>1、概率 p(x)</h3>
+<p>事件A的概率是对事件A在试验中出现的可能性大小的一种度量，事件A的概率表示为 <span class="highlight-blue">$p(A)$</span>。</p>
+
+<h3>2、概率分布</h3>
+<p>反映随机变量 <span class="highlight-blue">$X$</span>（可能是离散型、也可能是连续型）的所有可能取值（如<span class="highlight-blue">$X=x_1,x_2,\dots$</span>），将随机变量取这些值的概率一一列举出来的概率分布就是该随机变量的概率分布。</p>
+<p>对于离散型随机变量，它的概率分布可以用枚举法表示<span class="highlight-blue">$P(X=x_i)$</span>；对于连续型随机变量，它的概率分布可以用<span class="highlight-blue">$P(X)$</span>表示。</p>
+
+<div class="callout">
+    <strong>Tip：以上两个概念都是概念性的东西，并没有公式。</strong>
+</div>
+
+<h3>3、概率密度函数</h3>
+<p>设 <span class="highlight-blue">$X$</span> 为一<strong>连续型随机变量</strong>，<span class="highlight-blue">$x$</span>为任意实数，<span class="highlight-blue">$X$</span>的概率密度函数记为<span class="highlight-blue">$f(x)$</span>，概率密度函数满足条件：</p>
+<p>（1）<span class="highlight-blue">$f(x) \ge 0$</span>；（2）<span class="highlight-blue">$\int_{+\infty}^{-\infty}f(x)dx=1$</span>。</p>
+
+<p><strong>概率密度函数<span class="highlight-green">$f(x)$</span>和概率<span class="highlight-green">$p(x)$</span>的关系：</strong>对于任何实数<span class="highlight-blue">$x_1 < x_2$</span>，<span class="highlight-green">$p(x_1 < x < x_2)$</span>是该概率密度曲线下从<span class="highlight-blue">$x_1$</span>到<span class="highlight-blue">$x_2$</span>的面积：</p>
+<p style="text-align:center;">
+    <span class="highlight-green">$p(x_1 < x < x_2) = \int_{x_1}^{x_2} f(x) \, dx$</span>
+</p>
+
+<h3>4、分布函数（累积分布函数，CDF）</h3>
+<p>连续型随机变量的概率也可以用分布函数 <span class="highlight-blue">$F(x)$</span> 来表示，定义为：</p>
 $$
-F(x)=p(X\le x)=\int_{-\infty}^{x}f(t)dt
+F(x) = p(X \le x) = \int_{-\infty}^{x} f(t) \, dt
 $$
-其中，<span class="arithmatex">\(-\infty &lt; x &lt; + \infty\)</span>。分布函数是随机变量最重要的概率特征，分布函数可以完整地描述随机变量的统计规律。
-<strong><font color=ff00>分布函数和概率密度函数的关系：概率密度函数就是变量X在某个很小的取值区间[<span class="arithmatex">\(x_1\)</span>, <span class="arithmatex">\(x_2\)</span>]（因为连续性变量取某个确定的值的概率为0）中的概率所表示的函数，概率分布就是变量X在某个大的曲直区间[<span class="arithmatex">\(-\infty\)</span>, <span class="arithmatex">\(x_1\)</span>]中的概率，所以概率分布就是概率密度函数的累加，也就是说，对于连续型随机变量，概率密度函数是分布函数的导数，而分布函数是概率密度函数从负无穷到指定点的积分。‌‌物理上来讲，分布函数是概率密度函数曲线下小于<span class="arithmatex">\(x\)</span>的面积</font></strong></p>
+<p>其中，<span class="highlight-blue">$-\infty < x < +\infty$</span>。</p>
+
+<div class="callout">
+    <strong>分布函数与概率密度函数的关系</strong>
+    <p>概率密度函数是分布函数的导数，而分布函数是概率密度函数从负无穷到指定点的积分。物理意义上，分布函数是概率密度函数曲线下小于 <span class="highlight-blue">$x$</span> 的面积。</p>
+</div>
+
 <div align="center">
-<img src="./dpf.jpg" alt="示例图片1" width="400">
-<br>
-<em>Probability Density Function</em>
+    <img src="./dpf.jpg" alt="Probability Density Function" width="400">
+    <br>
+    <em>Probability Density Function</em>
 </div>
 
-<!--
-<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+<h3>5、均值和方差</h3>
+<p>凡是随机变量符合一定的分布，就有均值和方差，因此确定了一个分布的均值和方差，这个分布就100%确定了。</p>
 
-<div style="text-align: center;">
-<img src="image3.jpg" alt="图片3" width="200">
-<p style="font-size: 0.8em;">图片3说明</p>
-</div>
+<p><strong>均值（期望）</strong> <span class="highlight-blue">$E(X)$</span>：</p>
+<ul>
+    <li>离散：$E(X) = \sum x P(x)$</li>
+    <li>连续：$E(X) = \int_{-\infty}^{+\infty} x f(x) \, dx$</li>
+</ul>
 
-<div style="text-align: center;">
-<img src="image4.jpg" alt="图片4" width="200">
-<p style="font-size: 0.8em;">图片4说明</p>
-</div>
-</div>
--->
+<p><strong>方差</strong> <span class="highlight-blue">$S^2$</span>：</p>
+<p>每个样本点与均值之差的平方和除以样本数量。</p>
 
-<h2 id="5">5、均值和方差</h2>
-<p>凡是随机变量符合一定的分布，就有均值和方差, 所以如果确定了一个分布的方差和均值，这个分布就100%确定了。</p>
-<p><strong>均值（mean）</strong>：对于一个随机变量<span class="arithmatex">\(X\)</span>,均值也叫<span class="arithmatex">\(X\)</span>的期望值（denoted by <span class="arithmatex">\(E(X)\)</span>），即所有样本的平均值。
-对于离散随机变量 <span class="arithmatex">\(X\)</span> 来说，它的均值等于 <span class="arithmatex">\(\sum xP(x)\)</span>,其中，<span class="arithmatex">\(x\)</span>代表随机变量 <span class="arithmatex">\(X\)</span> 的所有可能的取值（对于离散型随机变量来说，<span class="arithmatex">\(P(x)\)</span>也叫概率质量函数）。
-对于连续随机变量 <span class="arithmatex">\(X\)</span> 来说，它的均值等于 <span class="arithmatex">\(\int_{-\infty }^{+\infty}xP(x)dx\)</span> ，这里的 <span class="arithmatex">\(f(x)\)</span> 是随机变量 <span class="arithmatex">\(X\)</span>的概率密度函数。</p>
-<p><strong>方差（variance）</strong>：方差等于每个样本点与均值之差的平方和除以样本数量。</p>
-<p>对于一个离散变量<span class="arithmatex">\(X\)</span>（一般数据的频次是给定的）：
-<strong>均值</strong>：<span class="arithmatex">\(E(X)=\frac{\sum^{n}_{i=1}x_i}{n}\)</span>，<span class="arithmatex">\(x_i\)</span>是离散变量<span class="arithmatex">\(X\)</span>的所有取值，<span class="arithmatex">\(n\)</span>是数据的个数，这个公式表示把所有数据加起来，然后除以数据的个数，得到的就是均值。
-<strong>方差</strong>：<span class="arithmatex">\(S^2=\frac{\sum^{n}_{i=1}(x_i-E(X))^2}{n}\)</span>,这个公式表示先求出每个数据与均值的差，然后平方，再把这些平方值加起来，最后除以数据的个数，得到的就是方差。</p>
-<h3 id="_2"><font color=ffzz></h3>
-<h2 id="6normal-distribution">6、正态分布（normal distribution）</font></h2>
-<p>正态分布也称高斯分布，通常记作<span class="arithmatex">\(X～N(μ ,σ^2)\)</span>，其中<span class="arithmatex">\(\mu\)</span>称为均值，<span class="arithmatex">\(\sigma^2\)</span>称为方差。正态分布的概率密度函数（说明是连续的）<span class="arithmatex">\(f(x)\)</span>符合如下式：
+<h3>6、正态分布（高斯分布）</h3>
+<p>正态分布记作 <span class="highlight-blue">$X \sim N(\mu, \sigma^2)$</span>，概率密度函数为：</p>
 $$
-f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 $$
-其中，<span class="arithmatex">\(μ = 0\)</span>,<span class="arithmatex">\(σ = 1\)</span>的正态分布被称为标准正态分布。</p>
-<h2 id="7likelihood-function"><font color=ffzz>7、似然函数likelihood function（似然）</font></h2>
-<p>wiki：似然函数（也叫似然）指的是一个统计模型用来解释观察到的数据的好坏情况的评判，通过计算在不同模型元素值的情况下看到某些数据的概率来比较的。换句话来讲，我们前面讲的概率密度函数<span class="arithmatex">\(f(x)\)</span>其实都是在分布固定的情况下写的（即模型的参数<span class="arithmatex">\(\theta\)</span>是固定的），按理来讲应该写成<span class="arithmatex">\(f(x|\theta)\)</span>（一般来讲，<span class="arithmatex">\(f(x|\theta)\)</span>这样的表达都会避免，而是用<span class="arithmatex">\(f(x;\theta)\)</span>或者<span class="arithmatex">\(f(x, \theta)\)</span>，这样做是为了暗示<span class="arithmatex">\(\theta\)</span>是一个固定的未知数而不是有条件的随机变量.），如果反过来，当取值<span class="arithmatex">\(x\)</span>是固定的时候，<span class="arithmatex">\(f(x|\theta)\)</span>就变成了似然函数了，为了避免歧义，一般将似然函数写成：<span class="arithmatex">\(\mathcal{L}(\theta|x)\)</span>。关于参数<span class="arithmatex">\(θ\)</span>的似然函数<span class="arithmatex">\(L(θ|x)\)</span>（在数值上）等于给定参数<span class="arithmatex">\(θ\)</span>后变量<span class="arithmatex">\(X\)</span>的概率：<span class="arithmatex">\(L(\theta|x)=P(X|x=\theta)\)</span>。似然函数在推断统计学（Statistical inference）中扮演重要角色，尤其是在参数估计方法中。在教科书中，似然常常被用作“概率”的同义词。但是在统计学中，二者有截然不同的用法。概率描述了已知参数时的随机变量的输出结果；似然则用来描述已知随机变量输出结果时，未知参数的可能取值。</p>
-<h2 id="8kl">8、KL散度</h2>
-<p>KL散度是信息论里面的知识点。通俗解释就是用一个分布P来表示另一个分布Q而减少的信息熵。
-<span class="arithmatex">\(KL(Q||P)\)</span>表示用分布Q来表示分布P对所减少的信息熵，<span class="arithmatex">\(KL(P||Q)\)</span>表示用分布P来表示分布Q对所减少的信息熵，所以<span class="arithmatex">\(KL(Q||P)\neq KL(P||Q)\)</span>。</p>
-<p><strong><font color=ff0000><center>----Tip: step into what truly need to learn formally, lets get started!---</center></font></strong></p>
-<h1 id="_3">二、扩散模型核心公式推导</h1>
-<h2 id="1ae">1、AE</h2>
-<p>autoencoder 的思路和原理比较简单，输入数据input_data通过encoder 压缩到特定维度，之后通过 decoder 恢复成原始维度，然后直接计算 decoder 后的数据与input_data 之间的MSE损失，以此来达到无监督提取特征的功能。（实现方式特别暴力！！！）</p>
-<h2 id="2vae">2、VAE</h2>
-<p>VAE 模型是AE的变体，相比于AE直接粗暴的用encoder压缩输入数据的特征的到隐变量然后通过decoder建模重建的特征，VAE做了进一步延伸，将隐变量的概率分布引入到建模过程中，它的encoder不像AE那样直接输出固定的隐变量矩阵，而且矩阵的值是 discrete，而是输出一个多变量的高斯分布（说明学到了输入数据的均值和方差），说明学习到的值是continuous，这也是AVE比AE好的原因。通过学习输入数据的分布来学习数据的特征。</p>
-<p style="background-color: #e3f2fd";> <font color=ff0000>VAE work flow:</font>假定实验数据集是MNIST（1 $\times$ 28 $\times$ 28），隐空间维度是 8，batch_size 是128， 所以输入数据就是[128， 784]，通过 encoder 后得到一个代表输入数据均值 $\mu$ 的矩阵[128, 8]和一个代表输入数据标准差 $\theta$ 的矩阵[128, 8]，基于这两个矩阵可以得到一个 8 变量的高斯分布（这就是encoder的输出），之后从这个 8 变量的高斯分布中采样的到一个[128, 8]的数据，经过encoder进行解码恢复得到output，即[128， 784]的矩阵。**这个简单操作背后的数学原理**：首先encoder生成的概率模型是基于 p(z|x) 建模的，它的到的是 p(z|x) 分布的均值和方差，然后 decoder 的过程是基于 q(x|z) 建模的.
-这个代表prior：$p(z)$，之后从这个 8 变量的高斯分布中采样的到一个[128, 8]的数据，经过encoder进行解码恢复得到[128， 784]的矩阵，这个矩阵就是代表posterior：$p(z|x)$，In other words, the value of observable variables x, given a value for latent variable z.</p>
+<p>当 <span class="highlight-blue">$\mu = 0$</span>，<span class="highlight-blue">$\sigma = 1$</span> 时称为标准正态分布。</p>
 
-<p>假如输入的图像特征是<span class="arithmatex">\(X\)</span>（这个<span class="arithmatex">\(X\)</span>代表很多特征点的集合，可以理解为随机变量），<span class="arithmatex">\(X\)</span>符合分布<span class="arithmatex">\(P(X)\)</span>，它的分布函数为<span class="arithmatex">\(P(x)\)</span>，VAE的目的就是通过估计出这个分布（即通过 VAE 模型的参数计算出来的特征符合<span class="arithmatex">\(P(X)\)</span>）。首先，<span class="arithmatex">\(P(X)\)</span>可以看作是各种高斯混合分布的叠加（任意的数据分布，都可以由若干的<span class="arithmatex">\(m\)</span>个高斯分布组成），公式表示如下：
-<span class="arithmatex">\(<span class="arithmatex">\(P(X)=\sum P(z)P(x|z)\)</span>\)</span> <span class="arithmatex">\(x\)</span>表示随机变量<span class="arithmatex">\(X\)</span>的取值，<span class="arithmatex">\(P(z)\)</span>是第<span class="arithmatex">\(z\)</span>个高斯分布，<span class="arithmatex">\(P(x|z)\)</span>是取到第<span class="arithmatex">\(m\)</span>个高斯分布的概率（或权重）。</p>
-<p>上面的情况表示的是有限个高斯分布的（离散）形式，但现实情况下，<span class="arithmatex">\(P(X)\)</span>通常是由无限个的高斯组成的，因此，将其变成积分的形式，代表无限个高斯分布的组合。上式可以写为：
-<span class="arithmatex">\(<span class="arithmatex">\(P(x)=\int_{z}P(z)P(x|z)dz\)</span>\)</span>
-其中，<span class="arithmatex">\(P(z)\)</span>表示高斯分布，<span class="arithmatex">\(z\sim N(0,1)\)</span>，而<span class="arithmatex">\(P(x|z)\)</span>是未知的，可以理解为条件分布（在高斯分布<span class="arithmatex">\(z\)</span>出现的情况下，特征<span class="arithmatex">\(x\)</span>出现的概率满足的分布），它的均值和方差为，<span class="arithmatex">\(x|z \sim N(\mu(z), \sigma(z))\)</span>。于是我们真正需要求解的就是<span class="arithmatex">\(\mu(z)\)</span>和<span class="arithmatex">\(\sigma(z)\)</span>的表达式，所以VAE引入encoder和decoder来求解。
-第一个神经网络叫做Encoder，它求解的结果是<span class="arithmatex">\(q(z|x)\)</span>, <span class="arithmatex">\(q(x)\)</span>可以代表任何分布。第二个神经网络叫做Decoder，它求解的是<span class="arithmatex">\(\mu(z)\)</span>和<span class="arithmatex">\(\sigma(z)\)</span>，等价于求解<span class="arithmatex">\(P(x|z)\)</span>，其中，第一个神经网络Encoder的目的就是辅助第一个Decoder求解<span class="arithmatex">\(P(x|z)\)</span>。</p>
-<p><font color=ff0000>VAE的工作原理更深入:</font>
-上面讲到，模型的目的就是估计输入图像的特征（随机变量）<span class="arithmatex">\(X\)</span>的分布<span class="arithmatex">\(P(X)\)</span>，然后通过该分布生成符合该分布的新图像出来。由上面的介绍可知，分布函数<span class="arithmatex">\(P(x)\)</span>表示的是随机变量<span class="arithmatex">\(X\)</span>的取值小于某一数值<span class="arithmatex">\(x\)</span>的概率，我们希望学习尽可能多的数据，即随机变量<span class="arithmatex">\(X\)</span>的取值范围足够大，所以<span class="arithmatex">\(X\)</span>的分布函数<span class="arithmatex">\(P(x)\)</span>也越大，这等价于求解：
-<span class="arithmatex">\(<span class="arithmatex">\(maximum L=\sum_{x}logP(x)\)</span>\)</span>给定任意一个分布<span class="arithmatex">\(q(x)\)</span>,有<span class="arithmatex">\(\int_{z}q(z)q(x|z)dz=1\)</span>，于是根据贝叶斯定理可以推导出：</p>
-<div class="arithmatex">\[\begin{align}
-logP(x) &amp;=log\int_{z}q(z|x)P(x)dz\\[0.5em]
-        &amp;=\int_{z}q(z|x)log\frac{P(z,x)}{P(z|x)}dz\\[0.5em]
-        &amp;=\int_{z}q(z|x)log\frac{P(z,x)}{q(z|x)}\cdot\frac{q(z|x)}{P(z|x)}dz\\[0.5em]
-        &amp;=\int_{z}q(z|x)log\frac{P(z,x)}{q(z|x)}dz+\int_{z}q(z|x)log\frac{q(z|x)}{P(z|x)}dz\\[0.5em]
-        &amp;=\int_{z}q(z|x)log\frac{P(z,x)}{q(z|x)}dz+KL(q(z|x)||P(z|x))
-\end{align}\]</div>
-<p><span class="arithmatex">\((5)\)</span>式中右边第二项为<span class="arithmatex">\(q(z|x)\)</span>和<span class="arithmatex">\(P(z|x)\)</span>两个分布之间的KL散度距离，根据KL公式性质，该项恒大于等于0，记：</p>
-<div class="arithmatex">\[\begin{align}
-L_b &amp;=\int_{z}q(z|x)log\frac{P(z,x)}{q(z|x)}dz\\[0.5em]
-    &amp;=\int_{z}q(z|x)log\frac{P(x|z)\cdot P(z)}{q(z|x)}dz
-\end{align}\]</div>
-<p>于是可以得到：
-\begin{align}logP(x)=L_b + KL(q(z|x)||P(z|x))\ge L_b
-\end{align}</p>
-<p>原来是要求使得<span class="arithmatex">\(logP(x)\)</span>最大化的<span class="arithmatex">\(P(x∣z)\)</span>，现在引入了一个<span class="arithmatex">\(q(z|x)\)</span>，就转换成了同时求<span class="arithmatex">\(P(x∣z)\)</span>和<span class="arithmatex">\(q(z|x)\)</span>使得<span class="arithmatex">\(logP(x)\)</span>最大化,不妨来观察下<span class="arithmatex">\(logP(x)\)</span>和<span class="arithmatex">\(L_b\)</span>的关系：
-根据公式<span class="arithmatex">\(P(x)=\int_zP(z)P(x|z)dz\)</span>，当我们固定住<span class="arithmatex">\(P(x|z)\)</span>时，由于<span class="arithmatex">\(P(z)\)</span>是固定的，所以<span class="arithmatex">\(P(x)\)</span>也是固定的，那么<span class="arithmatex">\(logP(x)\)</span>也就固定住了。而根据 <span class="arithmatex">\(6\)</span> 式可知，如果调节<span class="arithmatex">\(q(z|x)\)</span>使得分布<span class="arithmatex">\(q(z|x)\)</span>与分布<span class="arithmatex">\(P(z|x)\)</span>接近相等，即<span class="arithmatex">\(L_b\)</span>越来越大，如果分布<span class="arithmatex">\(q(z|x)\)</span>与分布<span class="arithmatex">\(P(z|x)\)</span>完全相等，即KL散度为0时，此时<span class="arithmatex">\(L_b\)</span>就完全等同于<span class="arithmatex">\(logP(x)\)</span>。所以，无论<span class="arithmatex">\(logP(x)\)</span>的值如何，总可以通过调节<span class="arithmatex">\(q(z|x)\)</span>使得<span class="arithmatex">\(L_b\)</span>等于它，又因为<span class="arithmatex">\(L_b\)</span>是<span class="arithmatex">\(logP(x)\)</span>的下界，所以求解<span class="arithmatex">\(max  logP(x)\)</span>等价于求解：</p>
-<p>\begin{align} maximum (L_b) \end{align}
-从宏观角度来看，调节<span class="arithmatex">\(P(z|x)\)</span>就是相当于调节Decoder，调节<span class="arithmatex">\(q(z|x)\)</span>就是调节Encoder，于是VAE模型的算法便是：Decoder每改进一次，Encoder就调节成跟其一致，并且利用约束项迫使Decoder在训练的时候“只能前进，不能后退”。这便是VAE的巧妙设计之处。</p>
-<p>现在只需求解<span class="arithmatex">\(maximum (L_b)\)</span>，注意到：</p>
-<div class="arithmatex">\[\begin{align}
-L_b &amp;=\int_{z}q(z|x)log\frac{P(x|z)\cdot P(z)}{q(z|x)}dz\\[0.5em]
-                 &amp;=\int_{z}q(z|x)log\frac{P(z)}{q(z|x)}dz+\int_{z}q(z|x)log{P(x|z)}dz\\[0.5em]
-                 &amp;=-KL(q(z|x)||P(z))+\int_{z}q(z|x)log{P(x|z)}dz
-\end{align}\]</div>
-<p>所以，求解<span class="arithmatex">\(maximum (L_b)\)</span>等价于求解KL的最小值和<span class="arithmatex">\(q(z|x)log{P(x|z)}\)</span>的最大值，第一项的展开式等于：</p>
-<div class="arithmatex">\[\begin{align}\sum_{i=1}^{j}exp(\sigma_i)-(1+\sigma_i)+(m_i)^2\end{align}\]</div>
-<p>于是，第一项式子就是第二节VAE模型架构中第二个损失函数的由来。</p>
-<p>第二项注意到:</p>
-<div class="arithmatex">\[\begin{align} maxmum \int_{z}q(z|x)logP(x|z)dz =maxmum E_{q(z|x)}[P(x|z)] \end{align}\]</div>
-<p>上述的这个期望，也就是表明在给定<span class="arithmatex">\(q(z|x)\)</span>的情况下，<span class="arithmatex">\(P(x|z)\)</span>的值尽可能高，第二项式子就是第二节VAE模型架构中第一个损失函数的由来。</p>
+<h3>7、似然函数（Likelihood Function）</h3>
+<p>似然函数 <span class="highlight-blue">$\mathcal{L}(\theta|x)$</span> 是在给定观测数据 <span class="highlight-blue">$x$</span> 的情况下，关于参数 <span class="highlight-blue">$\theta$</span> 的函数。它描述了在不同参数取值下观察到当前数据的概率。</p>
+<p>概率描述“已知参数时数据的分布”，似然描述“已知数据时参数的可能性”。</p>
+
+<h3>8、KL散度（Kullback-Leibler Divergence）</h3>
+<p>KL散度衡量两个概率分布之间的差异（信息损失）。</p>
+<p><span class="highlight-blue">$KL(Q||P)$</span> 表示用分布 <span class="highlight-blue">$Q$</span> 来近似 <span class="highlight-blue">$P$</span> 时损失的信息量。注意 <span class="highlight-red">$KL(Q||P) \neq KL(P||Q)$</span>（非对称）。</p>
+
+<div class="callout">
+    <strong>Tip</strong>
+    <center>Step into what you truly need to learn formally. Let's get started!</center>
+</div>
+
+<h2>二、扩散模型核心公式推导</h2>
+
+<h3>1、AutoEncoder (AE)</h3>
+<p>AE思路简单：输入数据通过Encoder压缩到低维，再通过Decoder重建回原始维度，直接计算重建误差（MSE）实现无监督特征提取。</p>
+
+<h3>2、Variational AutoEncoder (VAE)</h3>
+<p>VAE是AE的概率版本，不再输出确定性隐变量，而是输出一个高斯分布的参数（均值 <span class="highlight-blue">$\mu$</span> 和方差 <span class="highlight-blue">$\sigma$</span>），从该分布中采样得到隐变量 <span class="highlight-blue">$z$</span>。</p>
+
+<div class="callout">
+    <strong>VAE Work Flow（以MNIST为例）</strong>
+    <p>输入 <span class="highlight-blue">[128, 784]</span> → Encoder 输出 <span class="highlight-blue">$\mu$[128,8]</span> 和 <span class="highlight-blue">$\sigma$[128,8]</span> → 从该高斯分布采样 <span class="highlight-blue">z[128,8]</span> → Decoder 重建 <span class="highlight-blue">[128, 784]</span>。</p>
+</div>
+
+<p>VAE的核心目标是建模数据分布 <span class="highlight-blue">$P(X)$</span>，可表示为：</p>
+$$
+P(X) = \sum P(z) P(x|z) \quad \text{（离散形式）}
+$$
+$$
+P(x) = \int_{z} P(z) P(x|z) \, dz \quad \text{（连续形式）}
+$$
+
+<p>其中 <span class="highlight-blue">$z \sim N(0,1)$</span>，<span class="highlight-blue">$x|z \sim N(\mu(z),\sigma(z))$</span>。</p>
+
+<h3>VAE 证据下界（ELBO）推导</h3>
+
+<p>目标是最大化 <span class="highlight-blue">$\log P(x)$</span>：</p>
+
+$$
+\begin{align}
+\log P(x) &= \log \int_{z} q(z|x) \frac{P(x,z)}{q(z|x)} \, dz \\
+&= \int_{z} q(z|x) \log \frac{P(x,z)}{q(z|x)} \, dz + KL(q(z|x) || P(z|x)) \\
+&= L_b + KL(q(z|x) || P(z|x))
+\end{align}
+$$
+
+<p>由于KL项 ≥ 0，因此 <span class="highlight-blue">$L_b \le \log P(x)$</span>，<span class="highlight-blue">$L_b$</span> 即为证据下界（ELBO）。</p>
+
+<p>进一步展开 <span class="highlight-blue">$L_b$</span>：</p>
+
+$$
+L_b = -KL(q(z|x) || P(z)) + \mathbb{E}_{q(z|x)}[\log P(x|z)]
+$$
+
+<p>第一项对应<strong>正则化损失</strong>（让后验接近先验），第二项对应<strong>重建损失</strong>。</p>
+
+<div class="ending">
+    <strong>总结</strong><br>
+    VAE通过Encoder学习后验 <span class="highlight-blue">$q(z|x)$</span>，Decoder学习生成模型 <span class="highlight-blue">$p(x|z)$</span>，并通过ELBO实现端到端的优化，为后续扩散模型（Diffusion Models）奠定了坚实的概率建模基础。
+</div>
+
+</div>
 
 
 
